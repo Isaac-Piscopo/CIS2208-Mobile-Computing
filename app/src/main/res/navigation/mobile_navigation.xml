@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_networks">
+
+    <fragment
+        android:id="@+id/navigation_networks"
+        android:name="com.isaacpiscopo.wifinote.ui.networks.NetworksFragment"
+        android:label="@string/title_networks"
+        tools:layout="@layout/fragment_networks" />
+
+    <fragment
+        android:id="@+id/navigation_backup"
+        android:name="com.isaacpiscopo.wifinote.ui.backup.BackupFragment"
+        android:label="@string/title_backup"
+        tools:layout="@layout/fragment_backup" />
+
+    <fragment
+        android:id="@+id/navigation_share"
+        android:name="com.isaacpiscopo.wifinote.ui.share.ShareFragment"
+        android:label="@string/title_share"
+        tools:layout="@layout/fragment_share" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.isaacpiscopo.wifinote.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WifiNote</string>
+    <string name="title_networks">Networks</string>
+    <string name="title_backup">Backup</string>
+    <string name="title_share">Share</string>
+    <string name="title_settings">Settings</string>
+</resources>
