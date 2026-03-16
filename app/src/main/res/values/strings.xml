@@ -1,7 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- App -->
     <string name="app_name">WifiNote</string>
+
+    <!-- Bottom navigation tab titles -->
     <string name="title_networks">Networks</string>
     <string name="title_backup">Backup</string>
     <string name="title_share">Share</string>
     <string name="title_settings">Settings</string>
+
+    <!-- Networks fragment -->
+    <string name="networks_empty">No networks saved yet</string>
+    <string name="networks_add_hint">Add a network</string>
+
+    <!-- Edit network screen -->
+    <string name="edit_network_title_add">Add Network</string>
+    <string name="edit_network_title_edit">Edit Network</string>
+    <string name="label_ssid">Network name (SSID)</string>
+    <string name="hint_ssid">e.g. HomeNetwork</string>
+    <string name="label_password">Password</string>
+    <string name="hint_password">Min 8 characters for WPA</string>
+    <string name="label_security">Security type</string>
+    <string name="security_wpa2">WPA2</string>
+    <string name="security_wpa3">WPA3</string>
+    <string name="security_open">Open (no password)</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="error_ssid_empty">Network name cannot be empty</string>
+    <string name="error_ssid_too_long">Network name must be 32 characters or fewer</string>
+    <string name="error_password_too_short">Password must be at least 8 characters</string>
+
+    <!-- QR detail screen -->
+    <string name="qr_detail_title">QR Code</string>
+    <string name="qr_tap_to_reveal">Tap to reveal password</string>
+    <string name="action_save_to_gallery">Save to Gallery</string>
+    <string name="action_scan_qr">Scan QR</string>
+    <string name="qr_saved">QR code saved to gallery</string>
+    <string name="qr_save_failed">Failed to save QR code</string>
+
+    <!-- Backup fragment -->
+    <string name="backup_select_hint">Select networks to back up</string>
+    <string name="backup_action">Backup %1$d network(s)</string>
+    <string name="backup_success">Backup saved to gallery</string>
+
+    <!-- Share fragment -->
+    <string name="share_select_hint">Select networks to share</string>
+    <string name="share_action">Share %1$d network(s)</string>
+    <string name="share_via_text">Share as text</string>
+    <string name="share_via_web">Share via web link</string>
+    <string name="share_web_success">Link copied to clipboard</string>
+    <string name="share_web_failed">Failed to generate link. Retry?</string>
+    <string name="share_web_retry">Retry</string>
+    <string name="share_chooser_title">Share network credentials</string>
+
+    <!-- Settings fragment -->
+    <string name="settings_auto_backup">Auto-backup on exit</string>
+    <string name="settings_notifications">Enable notifications</string>
+    <string name="settings_backup_path">Default backup location</string>
+    <string name="settings_backup_path_value">Gallery / WifiNote</string>
+    <string name="settings_version">Version</string>
+    <string name="settings_privacy_policy">Privacy Policy</string>
+    <string name="settings_terms">Terms of Service</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">Welcome to WifiNote</string>
+    <string name="onboarding_body">WifiNote needs camera access to scan QR codes, and storage access to save QR images to your gallery.</string>
+    <string name="onboarding_grant_camera">Allow Camera</string>
+    <string name="onboarding_grant_storage">Allow Storage</string>
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_finish">Get Started</string>
+
+    <!-- Permissions -->
+    <string name="permission_camera_rationale">Camera access is needed to scan WiFi QR codes.</string>
+    <string name="permission_storage_rationale">Storage access is needed to save QR codes to your gallery.</string>
+    <string name="permission_denied_message">Permission denied. You can enable it in Settings.</string>
+    <string name="action_open_settings">Open Settings</string>
+
+    <!-- Toolbar overflow -->
+    <string name="menu_settings">Settings</string>
+
+    <!-- Generic -->
+    <string name="action_ok">OK</string>
+    <string name="action_dismiss">Dismiss</string>
+    <string name="loading">Loading…</string>
+
+    <!-- Content descriptions (accessibility) -->
+    <string name="cd_network_icon">WiFi network icon</string>
+    <string name="cd_qr_code">QR code for network</string>
+    <string name="cd_add_network">Add network</string>
+    <string name="cd_show_password">Show password</string>
+    <string name="cd_hide_password">Hide password</string>
+    <string name="cd_app_icon">WifiNote application icon</string>
+
 </resources>
