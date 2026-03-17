@@ -7,6 +7,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.isaacpiscopo.wifinote.data.DbHelper;
+import com.isaacpiscopo.wifinote.data.SeedData;
 import com.isaacpiscopo.wifinote.databinding.ActivityMainBinding;
 
 /** Main activity hosting the bottom navigation and navigation graph. */
@@ -20,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // Seed example data on first launch.
+        SeedData.seedIfEmpty(new DbHelper(this));
 
         BottomNavigationView navView = binding.navView;
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
