@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.isaacpiscopo.wifinote.EditNetworkActivity;
+import com.isaacpiscopo.wifinote.QrDetailActivity;
 import com.isaacpiscopo.wifinote.databinding.FragmentNetworksBinding;
 import com.isaacpiscopo.wifinote.model.Network;
 
@@ -62,8 +63,9 @@ public class NetworksFragment extends Fragment {
                     @Override
                     public void onItemClick(Network network) {
                         // Short-press: QR detail -- wired in M6
-                        Toast.makeText(requireContext(),
-                                "QR: " + network.getSsid(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(requireActivity(), QrDetailActivity.class);
+                        intent.putExtra(QrDetailActivity.EXTRA_NETWORK, network);
+                        startActivity(intent);
                     }
                 },
                 new NetworksAdapter.OnItemLongClickListener() {

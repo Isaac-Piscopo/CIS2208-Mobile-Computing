@@ -39,6 +39,7 @@ dependencies {
     implementation libs.androidx.lifecycle.viewmodel
     implementation libs.androidx.navigation.fragment
     implementation libs.androidx.navigation.ui
+    implementation libs.zxing.core
 
     testImplementation libs.junit
     testImplementation libs.robolectric
