@@ -1,5 +1,6 @@
 package com.isaacpiscopo.wifinote.ui.networks;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.isaacpiscopo.wifinote.EditNetworkActivity;
 import com.isaacpiscopo.wifinote.databinding.FragmentNetworksBinding;
 import com.isaacpiscopo.wifinote.model.Network;
 
@@ -68,8 +70,9 @@ public class NetworksFragment extends Fragment {
                     @Override
                     public void onItemLongClick(Network network) {
                         // Long-press: edit -- wired in M5
-                        Toast.makeText(requireContext(),
-                                "Edit: " + network.getSsid(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(requireActivity(), EditNetworkActivity.class);
+                        intent.putExtra(EditNetworkActivity.EXTRA_NETWORK, network);
+                        startActivity(intent);
                     }
                 }
         );
@@ -83,7 +86,8 @@ public class NetworksFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Add network -- wired in M5
-                Toast.makeText(requireContext(), "Add network -- coming in M5", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(requireActivity(), EditNetworkActivity.class);
+                startActivity(intent);
             }
         });
 
