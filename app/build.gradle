@@ -40,6 +40,7 @@ dependencies {
     implementation libs.androidx.navigation.fragment
     implementation libs.androidx.navigation.ui
     implementation libs.zxing.core
+    implementation libs.mlkit.barcode.scanner
 
     testImplementation libs.junit
     testImplementation libs.robolectric

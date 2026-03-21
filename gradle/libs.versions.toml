@@ -11,6 +11,7 @@ navigation = "2.9.0"
 robolectric = "4.12.2"
 androidxTestCore = "1.6.1"
 zxing = "3.5.2"
+mlkitScanner = "16.1.0"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -26,6 +27,7 @@ androidx-navigation-ui = { group = "androidx.navigation", name = "navigation-ui"
 robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidxTestCore" }
 zxing-core = { group = "com.google.zxing", name = "core", version.ref = "zxing" }
+mlkit-barcode-scanner = { group = "com.google.android.gms", name = "play-services-code-scanner", version.ref = "mlkitScanner" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
