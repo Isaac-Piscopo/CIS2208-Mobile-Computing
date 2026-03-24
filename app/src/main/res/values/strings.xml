@@ -93,5 +93,14 @@
     <string name="cd_show_password">Show password</string>
     <string name="cd_hide_password">Hide password</string>
     <string name="cd_app_icon">WifiNote application icon</string>
+    <string name="backup_button_label">Backup</string>
+    <string name="backup_button_label_n">Backup %d network(s)</string>
+    <string name="backup_saved_n">%d QR(s) saved to gallery</string>
+    <string name="backup_failed">Backup failed</string>
+    <string name="share_button_label">Share</string>
+    <string name="share_button_label_n">Share %d network(s)</string>
+    <string name="share_text_header">WiFiNote shared networks:</string>
+    <string name="tab_backup">Backup</string>
+    <string name="empty_networks">No networks saved yet</string>
 
 </resources>
