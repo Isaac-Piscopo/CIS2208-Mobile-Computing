@@ -49,9 +49,12 @@
     <string name="share_select_hint">Select networks to share</string>
     <string name="share_action">Share %1$d network(s)</string>
     <string name="share_via_text">Share as text</string>
-    <string name="share_via_web">Share via web link</string>
+    <string name="share_via_web">Share via Web</string>
     <string name="share_web_success">Link copied to clipboard</string>
-    <string name="share_web_failed">Failed to generate link. Retry?</string>
+    <string name="share_web_dialog_title">Link ready</string>
+    <string name="share_web_copy">Copy</string>
+    <string name="share_web_failed">Share failed. Tap to retry.</string>
+    <string name="share_web_progress">Uploading…</string>
     <string name="share_web_retry">Retry</string>
     <string name="share_chooser_title">Share network credentials</string>
 

@@ -37,12 +37,38 @@
         android:visibility="gone"
         android:textAppearance="?attr/textAppearanceBodyLarge" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_share"
+    <ProgressBar
+        android:id="@+id/progress_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="@string/share_button_label"
-        android:enabled="false" />
+        android:orientation="horizontal"
+        android:layout_margin="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_share"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="@string/share_button_label"
+            android:enabled="false" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_share_web"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/share_via_web"
+            android:enabled="false" />
+
+    </LinearLayout>
 
 </LinearLayout>
