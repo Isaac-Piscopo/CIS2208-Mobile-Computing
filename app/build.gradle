@@ -40,6 +40,7 @@ dependencies {
     implementation libs.androidx.lifecycle.viewmodel
     implementation libs.androidx.navigation.fragment
     implementation libs.androidx.navigation.ui
+    implementation libs.androidx.preference
     implementation libs.zxing.core
     implementation libs.mlkit.barcode.scanner
     implementation libs.retrofit

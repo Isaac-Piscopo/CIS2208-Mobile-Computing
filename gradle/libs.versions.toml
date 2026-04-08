@@ -14,6 +14,7 @@ zxing = "3.5.2"
 mlkitScanner = "16.1.0"
 retrofit = "2.11.0"
 okhttpLogging = "4.12.0"
+androidxPreference = "1.2.1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -33,6 +34,7 @@ mlkit-barcode-scanner = { group = "com.google.android.gms", name = "play-service
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpLogging" }
 mockwebserver = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "okhttpLogging" }
+androidx-preference = { group = "androidx.preference", name = "preference", version.ref = "androidxPreference" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -1,31 +1,58 @@
 package com.isaacpiscopo.wifinote.ui.settings;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import com.isaacpiscopo.wifinote.databinding.FragmentSettingsBinding;
+import android.widget.Toast;
 
-/** Fragment displayed when the user navigates to the Settings tab. */
-public class SettingsFragment extends Fragment {
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
 
-    private FragmentSettingsBinding binding;
+import com.isaacpiscopo.wifinote.BuildConfig;
+import com.isaacpiscopo.wifinote.R;
 
-    /** Inflates the fragment layout and initialises View Binding. */
+/**
+ * Settings screen implemented as a {@link PreferenceFragmentCompat}.
+ * Preferences are persisted automatically via {@link android.content.SharedPreferences}.
+ */
+public class SettingsFragment extends PreferenceFragmentCompat {
+
+    /**
+     * Inflates the preference hierarchy from {@code res/xml/preferences.xml} and
+     * wires the version summary and placeholder click listeners.
+     *
+     * @param savedInstanceState saved state bundle (unused).
+     * @param rootKey            preference root key (unused -- full screen).
+     */
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container,
-                             Bundle savedInstanceState) {
-        binding = FragmentSettingsBinding.inflate(inflater, container, false);
-        return binding.getRoot();
-    }
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        setPreferencesFromResource(R.xml.preferences, rootKey);
 
-    /** Releases the View Binding reference to avoid memory leaks. */
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+        Preference versionPref = findPreference("version");
+        if (versionPref != null) {
+            versionPref.setSummary(BuildConfig.VERSION_NAME);
+        }
+
+        Preference privacyPref = findPreference("privacy_policy");
+        if (privacyPref != null) {
+            privacyPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    Toast.makeText(requireContext(),
+                            getString(R.string.pref_title_privacy), Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+            });
+        }
+
+        Preference termsPref = findPreference("terms");
+        if (termsPref != null) {
+            termsPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    Toast.makeText(requireContext(),
+                            getString(R.string.pref_title_terms), Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+            });
+        }
     }
 }

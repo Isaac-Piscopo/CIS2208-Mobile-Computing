@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/pref_category_general">
+
+        <SwitchPreferenceCompat
+            app:key="auto_backup"
+            app:title="@string/pref_title_auto_backup"
+            app:summary="@string/pref_summary_auto_backup"
+            app:defaultValue="false" />
+
+        <SwitchPreferenceCompat
+            app:key="notifications"
+            app:title="@string/pref_title_notifications"
+            app:summary="@string/pref_summary_notifications"
+            app:defaultValue="true" />
+
+        <Preference
+            app:key="backup_path"
+            app:title="@string/pref_title_backup_path"
+            app:summary="@string/pref_summary_backup_path"
+            app:enabled="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/pref_category_about">
+
+        <Preference
+            app:key="version"
+            app:title="@string/pref_title_version"
+            app:selectable="false" />
+
+        <Preference
+            app:key="privacy_policy"
+            app:title="@string/pref_title_privacy" />
+
+        <Preference
+            app:key="terms"
+            app:title="@string/pref_title_terms" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
