@@ -80,7 +80,10 @@
 
     <!-- Onboarding -->
     <string name="onboarding_title">Welcome to WifiNote</string>
-    <string name="onboarding_body">WifiNote needs camera access to scan QR codes, and storage access to save QR images to your gallery.</string>
+    <string name="onboarding_body">WifiNote needs camera access to scan QR codes.\n\nStorage access lets you save QR images to your gallery on older devices.</string>
+    <string name="onboarding_btn_grant">Grant permissions</string>
+    <string name="onboarding_btn_skip">Skip</string>
+    <string name="onboarding_done">Setup complete</string>
     <string name="onboarding_grant_camera">Allow Camera</string>
     <string name="onboarding_grant_storage">Allow Storage</string>
     <string name="onboarding_skip">Skip</string>

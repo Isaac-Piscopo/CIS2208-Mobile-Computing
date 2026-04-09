@@ -38,6 +38,10 @@
             android:exported="false"
             android:label="@string/qr_detail_title"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".OnboardingActivity"
+            android:exported="false"
+            android:label="@string/onboarding_title" />
     </application>
 
 </manifest>
