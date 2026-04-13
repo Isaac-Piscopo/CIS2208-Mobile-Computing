@@ -6,8 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.isaacpiscopo.wifinote.data.DbHelper;
@@ -26,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (!prefs.getBoolean(OnboardingActivity.PREF_ONBOARDED, false)) {
             startActivity(new Intent(this, OnboardingActivity.class));
+            finish();
+            return;
         }
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -34,21 +35,15 @@ public class MainActivity extends AppCompatActivity {
         SeedData.seedIfEmpty(new DbHelper(this));
 
         BottomNavigationView navView = binding.navView;
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_networks,
-                R.id.navigation_backup,
-                R.id.navigation_share,
-                R.id.navigation_settings
-        ).build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.nav_host_fragment_activity_main);
+        NavController navController = navHostFragment.getNavController();
         NavigationUI.setupWithNavController(navView, navController);
     }
 
     /** Handles action bar up navigation. */
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        return navController.navigateUp() || super.onSupportNavigateUp();
+        return super.onSupportNavigateUp();
     }
 }

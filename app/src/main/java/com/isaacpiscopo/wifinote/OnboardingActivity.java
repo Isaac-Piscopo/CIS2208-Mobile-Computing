@@ -1,6 +1,7 @@
 package com.isaacpiscopo.wifinote;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -64,6 +65,7 @@ public class OnboardingActivity extends AppCompatActivity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.edit().putBoolean(PREF_ONBOARDED, true).apply();
         Toast.makeText(this, getString(R.string.onboarding_done), Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 }
