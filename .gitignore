@@ -1,27 +1,11 @@
-# Android
 *.iml
-.gradle
+.gradle/
 /local.properties
 /.idea/
 .DS_Store
-/build
+/build/
+/app/build/
 /captures
 .externalNativeBuild
 .cxx
-local.properties
-
-# Keystore
-*.jks
-*.keystore
-keystore.properties
-
-# APK / AAB artefacts
 *.apk
-*.aab
-
-# OS
-.DS_Store
-Thumbs.db
-
-# AI planning folder (never commit)
-.ai/

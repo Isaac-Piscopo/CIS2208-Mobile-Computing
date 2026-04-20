@@ -87,17 +87,18 @@ CIS2208-Mobile-Computing/
 │   │   │   │   ├── data/
 │   │   │   │   │   ├── DbHelper.java
 │   │   │   │   │   ├── NetworkContract.java
-│   │   │   │   │   ├── Network.java
 │   │   │   │   │   └── SeedData.java
+│   │   │   │   ├── model/
+│   │   │   │   │   └── Network.java
 │   │   │   │   ├── ui/
 │   │   │   │   │   ├── networks/
 │   │   │   │   │   │   ├── NetworksFragment.java
 │   │   │   │   │   │   ├── NetworksViewModel.java
-│   │   │   │   │   │   └── NetworksAdapter.java
+│   │   │   │   │   │   ├── NetworksAdapter.java
+│   │   │   │   │   │   └── SelectableNetworksAdapter.java
 │   │   │   │   │   ├── backup/
 │   │   │   │   │   │   ├── BackupFragment.java
-│   │   │   │   │   │   ├── BackupViewModel.java
-│   │   │   │   │   │   └── SelectableNetworksAdapter.java
+│   │   │   │   │   │   └── BackupViewModel.java
 │   │   │   │   │   ├── share/
 │   │   │   │   │   │   ├── ShareFragment.java
 │   │   │   │   │   │   └── ShareViewModel.java
@@ -105,6 +106,7 @@ CIS2208-Mobile-Computing/
 │   │   │   │   │       ├── SettingsFragment.java
 │   │   │   │   │       └── SettingsViewModel.java
 │   │   │   │   └── util/
+│   │   │   │       ├── QrScanHelper.java
 │   │   │   │       └── QrUtils.java
 │   │   │   └── res/
 │   │   │       ├── layout/        # XML layouts (activity_*, fragment_*)
@@ -113,9 +115,11 @@ CIS2208-Mobile-Computing/
 │   │   │       └── xml/           # preferences.xml
 │   │   └── test/
 │   │       └── java/com/isaacpiscopo/wifinote/
-│   │           └── api/
-│   │               └── PasteRepositoryTest.java
-│   └── build.gradle.kts
+│   │           ├── api/
+│   │           │   └── PasteRepositoryTest.java
+│   │           └── data/
+│   │               └── DbHelperTest.java
+│   └── build.gradle
 ├── docs/
 │   └── screenshots/               # PNG captures referenced above
 ├── gradle/

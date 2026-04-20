@@ -39,7 +39,7 @@ public class PasteRepositoryTest {
      * Verifies that a 201 response body is delivered to {@link PasteRepository.ShareCallback#onSuccess}.
      */
     @Test
-    public void share_successResponse_deliversUrl() throws InterruptedException {
+    public void testShareSuccess() throws InterruptedException {
         server.enqueue(new MockResponse()
                 .setResponseCode(201)
                 .setBody("https://paste.rs/abc123"));
@@ -68,15 +68,17 @@ public class PasteRepositoryTest {
      * Verifies that a 500 server error is delivered to {@link PasteRepository.ShareCallback#onFailure}.
      */
     @Test
-    public void share_serverError_deliversFailure() throws InterruptedException {
+    public void testShareFailure() throws InterruptedException {
         server.enqueue(new MockResponse().setResponseCode(500));
 
         CountDownLatch latch = new CountDownLatch(1);
         String[] failureMessage = {null};
+        String[] successUrl = {null};
 
         repository.share("test payload", new PasteRepository.ShareCallback() {
             @Override
             public void onSuccess(String url) {
+                successUrl[0] = url;
                 latch.countDown();
             }
 
@@ -88,7 +90,7 @@ public class PasteRepositoryTest {
         });
 
         latch.await(5, TimeUnit.SECONDS);
-        assertNull("Success should not be called on 500", null);
+        assertNull("onSuccess must not fire on a 500 response", successUrl[0]);
         assertEquals("Server error: 500", failureMessage[0]);
     }
 }
