@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Debug-variant manifest overlay.
+    Applies a network security config that permits cleartext HTTP to localhost,
+    allowing MockWebServer to function in instrumented tests on API 28+.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:networkSecurityConfig="@xml/network_security_config" />
+
+</manifest>

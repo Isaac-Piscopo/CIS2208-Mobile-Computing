@@ -53,12 +53,12 @@ public class PasteRepository {
     }
 
     /**
-     * Package-private constructor accepting an explicit base URL.
-     * Intended for unit tests only (e.g. MockWebServer).
+     * Constructor accepting an explicit base URL.
+     * Intended for tests (e.g. MockWebServer).
      *
      * @param baseUrl the base URL for the Retrofit instance.
      */
-    PasteRepository(String baseUrl) {
+    public PasteRepository(String baseUrl) {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(BuildConfig.DEBUG
                 ? HttpLoggingInterceptor.Level.BODY

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Debug-only network security configuration.
+    Allows cleartext HTTP to localhost so MockWebServer can be used in
+    instrumented tests on API 28+ without triggering the default
+    cleartext-blocking network security policy.
+-->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">localhost</domain>
+    </domain-config>
+</network-security-config>
