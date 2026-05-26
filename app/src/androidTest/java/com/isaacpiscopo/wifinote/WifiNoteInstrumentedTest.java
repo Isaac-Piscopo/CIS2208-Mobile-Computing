@@ -8,8 +8,10 @@ import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -469,5 +471,58 @@ public class WifiNoteInstrumentedTest {
         assertNotNull("Server must have received exactly one request", recorded);
 
         server.shutdown();
+    }
+
+    // -------------------------------------------------------------------------
+    // Table 6.1 row: Backup — multi-select, bulk export
+    // -------------------------------------------------------------------------
+
+    /**
+     * Navigates to the Backup tab, seeds two networks, selects both via the
+     * RecyclerView item click, and asserts the backup button becomes enabled
+     * and reflects the selection count before triggering the bulk export.
+     *
+     * <p>The export writes QR PNGs to MediaStore; on API 29+ no permission
+     * dialog appears (scoped storage). On API 28 and below WRITE_EXTERNAL_STORAGE
+     * is pre-granted by the GrantPermissionRule. The assertion checks the button
+     * state change (enabled, label contains "2") rather than the resulting media
+     * file, keeping the test deterministic across API levels without depending on
+     * the system file picker or camera.
+     *
+     * <p>Maps to Table 6.1 row: "Backup: multi-select, bulk export".
+     */
+    @Test
+    public void testBackupMultiSelectBulkExport() {
+        DbHelper db = new DbHelper(context);
+        db.insertNetwork(new Network("BackupNetA", "passA1234", "WPA2"));
+        db.insertNetwork(new Network("BackupNetB", "passB5678", "WPA2"));
+
+        try (ActivityScenario<MainActivity> scenario =
+                     ActivityScenario.launch(MainActivity.class)) {
+
+            // Navigate to the Backup tab.
+            onView(withId(R.id.navigation_backup)).perform(click());
+
+            // The RecyclerView must be visible (networks were seeded before launch).
+            onView(withId(R.id.recycler_backup)).check(matches(isDisplayed()));
+
+            // Select item 0 and item 1 by clicking their row views.
+            onView(withId(R.id.recycler_backup))
+                    .perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
+            onView(withId(R.id.recycler_backup))
+                    .perform(RecyclerViewActions.actionOnItemAtPosition(1, click()));
+
+            // Backup button must now be enabled and show the count in its label.
+            onView(withId(R.id.btn_backup)).check(matches(isEnabled()));
+            onView(withId(R.id.btn_backup)).check(matches(withText(containsString("2"))));
+
+            // Trigger the bulk export. The activity must survive (no crash).
+            onView(withId(R.id.btn_backup)).perform(click());
+
+            // After a successful export the adapter calls clearSelection(), which
+            // disables the button and resets its label. Confirm the activity is
+            // still alive by checking the navigation bar is visible.
+            onView(withId(R.id.nav_view)).check(matches(isDisplayed()));
+        }
     }
 }
