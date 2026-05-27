@@ -18,16 +18,16 @@ A local-first Android app for managing and sharing WiFi credentials via QR codes
 
 ## Features
 
-- **Credential store** — add, edit, and delete WiFi networks (SSID, password, security type); all data lives on-device in SQLite.
-- **QR code generation** — each network produces a `WIFI:` QR code (WPA3-compatible) that any modern Android or iOS camera app can scan.
-- **Save to gallery** — export a QR code as a PNG to the device photo library via MediaStore (scoped storage on API 29+).
-- **Scan to add** — scan a printed or on-screen WiFi QR code with ML Kit to pre-fill the Add Network form.
-- **Bulk backup** — select multiple networks on the Backup tab and export a QR PNG for each in one tap.
-- **Share via Android** — send selected networks' credentials as text through any share-compatible app (Messages, email, etc.).
-- **Share via Web** — upload credentials to [paste.rs](https://paste.rs) over HTTPS and receive a short URL, ready to copy.
-- **Settings** — toggle auto-backup and notifications; view app version; access privacy policy and terms.
-- **First-launch onboarding** — permission request screen for camera and (API ≤28) storage access.
-- **Material 3 + dark mode** — follows the system theme automatically.
+- **Credential store**, add, edit, and delete WiFi networks (SSID, password, security type). All data lives on-device in SQLite.
+- **QR code generation**, each network produces a `WIFI:` QR code (WPA3-compatible) that any modern Android or iOS camera app can scan.
+- **Save to gallery**, export a QR code as a PNG to the device photo library via MediaStore (scoped storage on API 29+).
+- **Scan to add**, scan a printed or on-screen WiFi QR code with ML Kit to pre-fill the Add Network form.
+- **Bulk backup**, select multiple networks on the Backup tab and export a QR PNG for each in one tap.
+- **Share via Android**, send selected networks' credentials as text through any share-compatible app (Messages, email, etc.).
+- **Share via Web**, upload credentials to [paste.rs](https://paste.rs) over HTTPS and receive a short URL, ready to copy.
+- **Settings**, toggle auto-backup and notifications, view app version, and access privacy policy and terms.
+- **First-launch onboarding**, permission request screen for camera and (API ≤28) storage access.
+- **Material 3 + dark mode**, follows the system theme automatically.
 
 ---
 
@@ -131,7 +131,7 @@ CIS2208-Mobile-Computing/
 
 ## Version Management
 
-Development follows a direct-to-`main` workflow, consistent with solo-developer practice. Each logical unit of work — a feature, a bug fix, or a structural change — is committed separately with a conventional-style message (`feat:`, `fix:`, `refactor:`, `test:`, `docs:`). This keeps the history linear and the blame output meaningful. No long-lived feature branches are used; short-lived working branches are merged immediately. The full commit history is visible at:
+Development follows a direct-to-`main` workflow, consistent with solo-developer practice. Each logical unit of work (a feature, a bug fix, or a structural change) is committed separately with a conventional-style message (`feat:`, `fix:`, `refactor:`, `test:`, `docs:`). This keeps the history linear and the blame output meaningful. No long-lived feature branches are used. Short-lived working branches are merged immediately. The full commit history is visible at:
 
 <https://github.com/Isaac-Piscopo/CIS2208-Mobile-Computing/commits/main>
 
